@@ -43,6 +43,11 @@ function addFonts(fonts, replacements, type, manual) {
 	var css = [];
 	for (var i=0; i<fonts.length; i++) {
 		var font = fonts[i];
+        document.querySelectorAll('span').forEach(function(span){
+            if (span.style.fontFamily.indexOf(font) >= 0) {
+                span.style.fontFamily = null;
+            }
+        });
 		var replacementFont = replacements[i];
 		groupedWeights.forEach(function(weights, bold) {
 			weights.forEach(function(weight) {
